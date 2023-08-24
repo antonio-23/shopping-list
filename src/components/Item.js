@@ -4,7 +4,12 @@ function Item({ item, onDeleteItem, onToggleItem }) {
   return (
     <li>
       <div>
-        <input type='checkbox' value={item.packed} onChange={() => onToggleItem(item.id)} />
+        <input
+          type='checkbox'
+          value={item.packed}
+          onChange={() => onToggleItem(item.id)}
+          defaultChecked={item.packed}
+        />
         <span style={item.packed ? { textDecoration: 'line-through' } : {}}>
           {item.quantity} {item.description}
         </span>

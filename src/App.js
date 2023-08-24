@@ -5,26 +5,41 @@ import PackingList from './components/PackingList';
 import Stats from './components/Stats';
 
 function App() {
-  const [items, setItems] = useState([]);
+  const localStorageItem = localStorage.getItem('items');
+  const localStorageObject = JSON.parse(localStorageItem) || [];
+  const [items, setItems] = useState(localStorageObject);
+
+  const updateLocalStorage = function (updateItems) {
+    localStorage.setItem('items', JSON.stringify(updateItems));
+  };
 
   function handleAddItem(item) {
-    setItems((items) => [...items, item]);
+    const addItem = [...items, item];
+    setItems(addItem);
+    updateLocalStorage(addItem);
   }
 
   function handleDeleteItem(id) {
-    setItems((items) => items.filter((item) => item.id !== id));
+    const updateItem = items.filter((item) => item.id !== id);
+    setItems(updateItem);
+    updateLocalStorage(updateItem);
   }
 
   function handleToggleItem(id) {
-    setItems((items) =>
-      items.map((item) => (item.id === id ? { ...item, packed: !item.packed } : item))
+    const toggleItem = items.map((item) =>
+      item.id === id ? { ...item, packed: !item.packed } : item
     );
+    setItems(toggleItem);
+    updateLocalStorage(toggleItem);
   }
 
   function handleClearList() {
     const confirmed = window.confirm('Are you sure you want to delete all items?');
 
-    if (confirmed) setItems([]);
+    if (confirmed) {
+      localStorage.clear();
+      setItems([]);
+    }
   }
 
   return (
@@ -37,7 +52,7 @@ function App() {
         onToggleItem={handleToggleItem}
         onClearList={handleClearList}
       />
-      <Stats />
+      <Stats items={items} />
     </div>
   );
 }
