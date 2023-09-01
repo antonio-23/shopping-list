@@ -2,8 +2,10 @@
 
 ## 📝 Project description
 
+
 This is a web-based shopping list application built using React. It allows users to create, manage, and organize their shopping lists. Users can add items to the list, specify the quantity, mark items as packed, remove items, sort the list, and clear the entire list. All the data is persisted using the browser's `localStorage` feature.
 
+![screenshot](https://github.com/antonio-23/shopping-list/assets/65775402/acd1e22a-efc9-4c1d-a5ab-1079dc0028dd)
 
 ## 🔮 Features
 
