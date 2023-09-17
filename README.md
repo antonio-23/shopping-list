@@ -1,4 +1,4 @@
-# Shopping List || [LIVE DEMO](https://shoppinglist-antonio-23.netlify.app)
+# Shopping List | [LIVE DEMO](https://shoppinglist-antonio-23.netlify.app)
 
 
 ## 📝 Project description
@@ -28,7 +28,7 @@ This is a web-based shopping list application built using React. It allows users
 
 To run the project locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/shopping-list.git`
+1. Clone the repository: `git clone https://github.com/antonio-23/shopping-list`
 2. Navigate to the project directory: `cd shopping-list`
 3. Install dependencies: `npm install`
 4. Start the development server: `npm start`
